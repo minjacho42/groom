@@ -20,7 +20,7 @@ def ReqByPage(page : int):
             yield {'movie':movie,'sentence':sentence,'score':score}
 
 def ReviewCrawl():
-    with open('samples.csv','w') as fd:
+    with open('samples.csv','w', encoding="utf8") as fd:
         writer = csv.DictWriter(fd, fieldnames=['movie','sentence','score'])
         writer.writeheader()
         for sample in ReqByPage(1000):
