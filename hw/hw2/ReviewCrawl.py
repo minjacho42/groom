@@ -19,9 +19,12 @@ def ReqByPage(page : int):
                 sentence = texts[3]
             yield {'movie':movie,'sentence':sentence,'score':score}
 
-if __name__ == '__main__':
+def ReviewCrawl():
     with open('samples.csv','w') as fd:
         writer = csv.DictWriter(fd, fieldnames=['movie','sentence','score'])
         writer.writeheader()
         for sample in ReqByPage(1000):
             writer.writerow(sample)
+
+if __name__ == '__main__':
+    ReviewCrawl()
